@@ -3456,6 +3456,13 @@
 				mouseover: function (evt){
 					var target = api.event.fix(evt).target;
 
+					if (target.tagName === 'LABEL') {
+						var _inputs = target.getElementsByTagName('input');
+						if (_inputs.length > 0) {
+							target = _inputs[0];
+						}
+					}
+
 					if( /input/i.test(target.nodeName) && target.type == 'file' ){
 						var
 							  state = target.getAttribute(_attr)
